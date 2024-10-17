@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            //ExecuteStackExample();
+            ExecuteStackExample();
             ExecuteQueueExample();
         }
         static void ExecuteQueueExample()
