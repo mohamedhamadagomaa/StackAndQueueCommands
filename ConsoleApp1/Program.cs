@@ -19,10 +19,13 @@
                     ExecuteQueueExample();
 
                 }
+                else if (input == "exit")
+                {
+                    break;
+                }
                 else
                 {
                     Console.WriteLine("Invalid Option");
-                    break;
                 }
             }
 
