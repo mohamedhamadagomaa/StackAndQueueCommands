@@ -4,6 +4,11 @@
     {
         static void Main(string[] args)
         {
+            ExecuteStackExample();
+        }
+
+        static void ExecuteStackExample()
+        {
             var commandStack = new Stack<AppendTextCommand>();
             var redoStack = new Stack<AppendTextCommand>();
             var originalText = "";
@@ -50,34 +55,36 @@
                     commandStack.Push(command);
                 }
             }
+        }
+        static void ExecuteQueueExample()
+        {
 
+        }
+        class AppendTextCommand
+        {
+            private string _originalText;
+            private string _textToAppend;
+            public AppendTextCommand(string originalText, string textToAppend)
+            {
+                _originalText = originalText;
+                _textToAppend = textToAppend;
+            }
+            public string Execute()
+            {
+                _originalText += _textToAppend;
+                Console.WriteLine($"Your Text is : " + _originalText);
+                return _originalText + " ";
 
+            }
+            public string Undo()
+            {
+                _originalText = _originalText.Substring(0, _originalText.Length - _textToAppend.Length);
+                Console.WriteLine(_originalText);
+                return _originalText;
+            }
 
         }
     }
 
-    class AppendTextCommand
-    {
-        private string _originalText;
-        private string _textToAppend;
-        public AppendTextCommand(string originalText, string textToAppend)
-        {
-            _originalText = originalText;
-            _textToAppend = textToAppend;
-        }
-        public string Execute()
-        {
-            _originalText += _textToAppend;
-            Console.WriteLine($"Your Text is : " + _originalText);
-            return _originalText + " ";
 
-        }
-        public string Undo()
-        {
-            _originalText = _originalText.Substring(0, _originalText.Length - _textToAppend.Length);
-            Console.WriteLine(_originalText);
-            return _originalText;
-        }
-
-    }
 }
