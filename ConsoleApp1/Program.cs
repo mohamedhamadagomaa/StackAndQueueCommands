@@ -4,9 +4,30 @@
     {
         static void Main(string[] args)
         {
-            ExecuteStackExample();
+            //ExecuteStackExample();
+            ExecuteQueueExample();
         }
+        static void ExecuteQueueExample()
+        {
+            var queue = new Queue<string>();
+            while (true)
+            {
+                Console.Write("Please select a document to print:('print' to Print): ");
 
+                var input = Console.ReadLine();
+                if (input.Equals("print", StringComparison.OrdinalIgnoreCase))
+                {
+                    while (queue.Count > 0)
+                    {
+                        Console.WriteLine($"Printing document '{queue.Dequeue()}'...");
+                        Console.WriteLine("queue count = " + queue.Count);
+                    }
+                }
+                else
+                    queue.Enqueue(input);
+            }
+
+        }
         static void ExecuteStackExample()
         {
             var commandStack = new Stack<AppendTextCommand>();
@@ -56,10 +77,7 @@
                 }
             }
         }
-        static void ExecuteQueueExample()
-        {
 
-        }
         class AppendTextCommand
         {
             private string _originalText;
