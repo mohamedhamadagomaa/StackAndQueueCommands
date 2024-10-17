@@ -8,7 +8,7 @@
             var redoStack = new Stack<AppendTextCommand>();
             var originalText = "";
 
-
+            // loopping while true for returning the code each time
             while (true)
             {
                 Console.Write("Type The Text To appended ('exit' to Exit, 'undo' to Undo,''redo' to Redo ): ");
