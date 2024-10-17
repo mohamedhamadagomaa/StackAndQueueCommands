@@ -23,7 +23,10 @@
                         originalText = command.Undo();
                         redoStack.Push(command);
 
-
+                    }
+                    else
+                    {
+                        Console.WriteLine("you are't enter any text to undo it you should enter first!");
                     }
                 }
                 else if (input.Equals("redo", StringComparison.OrdinalIgnoreCase))
