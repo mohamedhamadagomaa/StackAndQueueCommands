@@ -4,8 +4,28 @@
     {
         static void Main(string[] args)
         {
-            ExecuteStackExample();
-            ExecuteQueueExample();
+            while (true)
+            {
+                Console.WriteLine("Select the Option between [1] Stack [2]Queue");
+                var input = Console.ReadLine();
+                if (input == "1")
+                {
+                    Console.WriteLine("Ok You Are Now in stack:");
+                    ExecuteStackExample();
+                }
+                else if (input == "2")
+                {
+                    Console.WriteLine("Ok You Are Now in Queue:");
+                    ExecuteQueueExample();
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Option");
+                    break;
+                }
+            }
+
         }
         static void ExecuteQueueExample()
         {
